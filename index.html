@@ -1,0 +1,56 @@
+<html>
+<head>
+	<meta http-Equiv="Cache-Control" Content="no-cache" />
+    <meta http-Equiv="Pragma" Content="no-cache" />
+    <meta http-Equiv="Expires" Content="0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	var urloneonone = "https://mnalmeida.github.io/dti-1-1";
+	var urls = [
+	"Logo.html",
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=2134140035&single=true",
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=1006245175&single=true",
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=1176789139&single=true",
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=148846360&single=true",
+	"https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=648305186&single=true",
+	"https://docs.google.com/spreadsheets/d/19ZBFnBBTBPInGoXyVf2ImRm4d9IUYv_h2jELR1jTKfA/pubhtml?gid=1299658999&single=true&amp;widget=true&amp;headers=false",
+	urloneonone
+	];
+	var i = 0;
+	function redirect_url(){
+		if( i < urls.length ){
+			setTimeout(function(){
+				if (i > 0 && urls[i] != urloneonone) {
+					document.getElementById('frame').setAttribute('src', urls[i] + "&refresh="+(new Date()));
+				}
+				else {
+					document.getElementById('frame').setAttribute('src',  urls[i]);
+				}
+				i++;
+				var frameElement = document.getElementById("frame");
+				if(frameElement.src === urloneonone) {
+					frameElement.style.display = 'none';
+					document.getElementById('frameOneOnOne').style.display = 'block';
+				}
+				else {
+					frameElement.contentWindow.location.href = frameElement.src;
+					frameElement.style.display = 'block';
+					document.getElementById('frameOneOnOne').style.display = 'none';
+				}
+				redirect_url();
+			}, 20000);
+		}
+		else
+		{
+			i=0;
+			redirect_url();
+		}
+	}
+	$('#frameOneOnOne').hide();
+	redirect_url();
+</script>
+</head>
+<body style="overflow: hidden">
+<iframe id = "frame" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" align="center"></iframe>
+<iframe id = "frameOneOnOne" src="https://mnalmeida.github.io/dti-1-1" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" align="center"></iframe>
+</body>
