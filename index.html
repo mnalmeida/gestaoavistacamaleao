@@ -5,30 +5,63 @@
     <meta http-Equiv="Expires" Content="0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
-	var urloneonone = "https://mnalmeida.github.io/dti-1-1";
-	var urls = [
-	"Logo.html",
-	"https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=2134140035&single=true",
-	"https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=1006245175&single=true",
-	"https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=1176789139&single=true",
-	"https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=148846360&single=true",
-	"https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=648305186&single=true",
-	"https://docs.google.com/spreadsheets/d/19ZBFnBBTBPInGoXyVf2ImRm4d9IUYv_h2jELR1jTKfA/pubhtml?gid=1299658999&single=true&amp;widget=true&amp;headers=false",
-	urloneonone
-	];
+	var urloneonone = {
+		url: "https://mnalmeida.github.io/dti-1-1",
+		scale: null
+	};
+	
+	var urlLogo = {
+		url: "Logo.html",
+		scale: null
+	};
+	
+	var urlIgnition = {
+		url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=2134140035&single=true",
+		scale: null
+	};
+	
+	var urlCheckExecucao = {
+		url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=1006245175&single=true",
+		scale: "scaleY(1.2)"
+	};
+	
+	var urlGrowthBoard = {
+		url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=1176789139&single=true",
+		scale: "scaleX(1.2)"
+	};
+	
+	var urlAgenda = {
+		url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Zn28bOqxR4Ocy1oa3bEFdznzN2hBilWZ_2RocyT0e6Ezs8-JAj0nldbGq26RsGhAIWnpYe4S3BU0/pubhtml?gid=148846360&single=true",
+		scale: null
+	};
+	
+	var urlGestaoAVista = {
+		url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=648305186&single=true",
+		scale: null
+	};
+	
+	var urlAderenciaOperacional = {
+		url: "https://docs.google.com/spreadsheets/d/19ZBFnBBTBPInGoXyVf2ImRm4d9IUYv_h2jELR1jTKfA/pubhtml?gid=1299658999&single=true&amp;widget=true&amp;headers=false",
+		scale: null
+	};
+	
+	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAderenciaOperacional, urloneonone];
+	
 	var i = 0;
 	function redirect_url(){
 		if( i < urls.length ){
 			setTimeout(function(){
-				if (i > 0 && urls[i] != urloneonone) {
-					document.getElementById('frame').setAttribute('src', urls[i] + "&refresh="+(new Date()));
+				if (i > 0 && urls[i].url != urloneonone.url) {
+					document.getElementById('frame').setAttribute('src', urls[i].url + "&refresh="+(new Date()));
+					document.getElementById('frame').style.transform = urls[i].scale;
 				}
 				else {
-					document.getElementById('frame').setAttribute('src',  urls[i]);
+					document.getElementById('frame').setAttribute('src',  urls[i].url);
+					document.getElementById('frame').style.transform = urls[i].scale;
 				}
 				i++;
 				var frameElement = document.getElementById("frame");
-				if(frameElement.src === urloneonone) {
+				if(frameElement.src === urloneonone.url) {
 					frameElement.style.display = 'none';
 					document.getElementById('frameOneOnOne').style.display = 'block';
 				}
@@ -38,7 +71,7 @@
 					document.getElementById('frameOneOnOne').style.display = 'none';
 				}
 				redirect_url();
-			}, 20000);
+			}, 5000);
 		}
 		else
 		{
