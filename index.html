@@ -45,13 +45,21 @@
 		scale: null
 	};
 	
-	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urloneonone];
+	var urlAniversarios = {
+		url: "https://mnalmeida.github.io/dti-1-1/aniversariantes.html",
+		scale: null
+	}
+	
+	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone];
 	
 	var i = 0;
+	
 	function redirect_url(){
+		<!-- document.getElementById('frameOneOnOne').style.display = 'none'; -->
+		<!-- document.getElementById('frameAniversarios').style.display = 'none';	 -->
 		if( i < urls.length ){
 			setTimeout(function(){
-				if (i > 0 && urls[i].url != urloneonone.url) {
+				if (i > 0 && urls[i].url != urloneonone.url && urls[i].url != urlAniversarios.url) {
 					document.getElementById('frame').setAttribute('src', urls[i].url + "&refresh="+(new Date()));
 					document.getElementById('frame').style.transform = urls[i].scale;
 				}
@@ -64,11 +72,18 @@
 				if(frameElement.src === urloneonone.url) {
 					frameElement.style.display = 'none';
 					document.getElementById('frameOneOnOne').style.display = 'block';
+					document.getElementById('frameAniversarios').style.display = 'none';
+				}
+				else if (frameElement.src === urlAniversarios.url) {
+					frameElement.style.display = 'none';
+					document.getElementById('frameOneOnOne').style.display = 'none';
+					document.getElementById('frameAniversarios').style.display = 'block';
 				}
 				else {
 					frameElement.contentWindow.location.href = frameElement.src;
 					frameElement.style.display = 'block';
 					document.getElementById('frameOneOnOne').style.display = 'none';
+					document.getElementById('frameAniversarios').style.display = 'none';
 				}
 				redirect_url();
 			}, 20000);
@@ -79,11 +94,11 @@
 			redirect_url();
 		}
 	}
-	$('#frameOneOnOne').hide();
 	redirect_url();
 </script>
 </head>
 <body style="overflow: hidden">
 <iframe id = "frame" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" align="center"></iframe>
-<iframe id = "frameOneOnOne" src="https://mnalmeida.github.io/dti-1-1" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" align="center"></iframe>
+<iframe id = "frameOneOnOne" src="https://mnalmeida.github.io/dti-1-1" frameborder="0" style="display:none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" align="center"></iframe>
+<iframe id = "frameAniversarios" src="https://mnalmeida.github.io/dti-1-1/aniversariantes" frameborder="0" style="display:none;overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%" align="center"></iframe>
 </body>
