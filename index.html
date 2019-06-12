@@ -50,48 +50,13 @@
 		scale: null
 	}
 
-	var urlOKRsAba1 ={
-		url: "https://app.powerbi.com/groups/me/reports/bd1f5e1a-ba18-4b34-b582-fca99bc0b960/ReportSection",
-		scale: null
-	}
-
-	var urlOKRsAba2 ={
-		url: "https://app.powerbi.com/groups/me/reports/bd1f5e1a-ba18-4b34-b582-fca99bc0b960/ReportSection1f2d6b61c7b17cef7de3",
-		scale: null
-	}
-	
-	var urlOKRsAba3 ={
-		url: "https://app.powerbi.com/groups/me/reports/bd1f5e1a-ba18-4b34-b582-fca99bc0b960/ReportSection3adb41481c6da20ec1a4",
-		scale: null
-	}
-
-	var urlOKRsAba4 ={
-		url: "https://app.powerbi.com/groups/me/reports/bd1f5e1a-ba18-4b34-b582-fca99bc0b960/ReportSection0bc34de231989ac737dc",
-		scale: null
-	}
-
-	var urlOKRsAba5 ={
-		url: "https://app.powerbi.com/groups/me/reports/bd1f5e1a-ba18-4b34-b582-fca99bc0b960/ReportSection94870f51537328916287",
-		scale: null
-	}
-
-	var urlOKRsAba6 ={
-		url: "https://app.powerbi.com/groups/me/reports/bd1f5e1a-ba18-4b34-b582-fca99bc0b960/ReportSection13a9bb9c920c488ec013",
-		scale: null
-	}
-
-	var urlOKRsAba7 ={
-		url: "https://app.powerbi.com/groups/me/reports/bd1f5e1a-ba18-4b34-b582-fca99bc0b960/ReportSectionb5567af6598c266d8507",
-		scale: null
-	}
-
-	var urlOKRsAba8 ={
-		url: "https://app.powerbi.com/groups/me/reports/bd1f5e1a-ba18-4b34-b582-fca99bc0b960/ReportSection0325fbffbd366973196c",
+	var urlOKRs ={
+		url: "https://app.powerbi.com/view?r=eyJrIjoiOTMwOTEwMmUtMzg1ZS00NjA0LWI3MWMtYjYzYzcyMDgyYzI5IiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
 		scale: null
 	}
 
 	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone,
-				urlOKRsAba1, urlOKRsAba2, urlOKRsAba3, urlOKRsAba4, urlOKRsAba5, urlOKRsAba6, urlOKRsAba7, urlOKRsAba8];
+				urlOKRs];
 	
 	var i = 0;
 	
@@ -119,6 +84,18 @@
 					frameElement.style.display = 'none';
 					document.getElementById('frameOneOnOne').style.display = 'none';
 					document.getElementById('frameAniversarios').style.display = 'block';
+				}
+				else if(frameElement.src === urlOKRs.url)
+				{
+					var paginaAnterior = document.getElementsByClassName('pbi-glyph-chevronleftmedium')[0];
+					paginaAnterior.click();
+					paginaAnterior.click();
+					var proximaPagina = document.getElementsByClassName('pbi-glyph-chevronrightmedium')[0];
+
+					for( j = 0; j < 8; ++j)
+					{
+						setTimeout(proximaPagina.click(), 20000);
+					}
 				}
 				else {
 					frameElement.contentWindow.location.href = frameElement.src;
