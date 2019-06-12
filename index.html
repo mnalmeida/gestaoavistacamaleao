@@ -87,6 +87,7 @@
 				}
 				else if(frameElement.src === urlOKRs.url)
 				{
+					setTimeout({}, 3000);
 					var paginaAnterior = document.getElementsByClassName('pbi-glyph-chevronleftmedium')[0];
 					paginaAnterior.click();
 					paginaAnterior.click();
@@ -94,7 +95,7 @@
 
 					for( j = 0; j < 8; ++j)
 					{
-						setTimeout(proximaPagina.click(), 500);
+						setTimeout(proximaPagina.click(), 3000);
 					}
 				}
 				else {
@@ -104,7 +105,7 @@
 					document.getElementById('frameAniversarios').style.display = 'none';
 				}
 				redirect_url();
-			}, 500);
+			}, 3000);
 		}
 		else
 		{
