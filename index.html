@@ -55,10 +55,9 @@
 		scale: null
 	}
 
-	//var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone,
-	//			urlOKRs];
+	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone];
 	
-	var urls = [urlOKRs];
+	//var urls = [urlOKRs];
 	var i = 0;
 	
 	function redirect_url(){
@@ -86,19 +85,19 @@
 					document.getElementById('frameOneOnOne').style.display = 'none';
 					document.getElementById('frameAniversarios').style.display = 'block';
 				}
-				else if(frameElement.src === urlOKRs.url)
-				{
-					setTimeout({}, 3000);
-					var paginaAnterior = document.getElementsByClassName('pbi-glyph-chevronleftmedium')[0];
-					paginaAnterior.click();
-					paginaAnterior.click();
-					var proximaPagina = document.getElementsByClassName('pbi-glyph-chevronrightmedium')[0];
+				// else if(frameElement.src === urlOKRs.url)
+				// {
+				// 	setTimeout({}, 3000);
+				// 	var paginaAnterior = document.getElementsByClassName('pbi-glyph-chevronleftmedium')[0];
+				// 	paginaAnterior.click();
+				// 	paginaAnterior.click();
+				// 	var proximaPagina = document.getElementsByClassName('pbi-glyph-chevronrightmedium')[0];
 
-					for( j = 0; j < 8; ++j)
-					{
-						setTimeout(proximaPagina.click(), 20000);
-					}
-				}
+				// 	for( j = 0; j < 8; ++j)
+				// 	{
+				// 		setTimeout(proximaPagina.click(), 20000);
+				// 	}
+				// }
 				else {
 					frameElement.contentWindow.location.href = frameElement.src;
 					frameElement.style.display = 'block';
