@@ -55,9 +55,10 @@
 		scale: null
 	}
 
-	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone,
-				urlOKRs];
+	//var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone,
+	//			urlOKRs];
 	
+	var urls = [urlOKRs];
 	var i = 0;
 	
 	function redirect_url(){
@@ -95,7 +96,7 @@
 
 					for( j = 0; j < 8; ++j)
 					{
-						setTimeout(proximaPagina.click(), 3000);
+						setTimeout(proximaPagina.click(), 20000);
 					}
 				}
 				else {
@@ -105,7 +106,7 @@
 					document.getElementById('frameAniversarios').style.display = 'none';
 				}
 				redirect_url();
-			}, 3000);
+			}, 20000);
 		}
 		else
 		{
