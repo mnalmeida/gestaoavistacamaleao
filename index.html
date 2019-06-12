@@ -50,14 +50,28 @@
 		scale: null
 	}
 
-	var urlOKRs ={
-		url: "https://app.powerbi.com/view?r=eyJrIjoiOTMwOTEwMmUtMzg1ZS00NjA0LWI3MWMtYjYzYzcyMDgyYzI5IiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
+	var urlOKR1 ={
+		url: "https://app.powerbi.com/view?r=eyJrIjoiZjM1YjI3ZTUtODRkNC00NDU4LWI0MTYtNzgyMjU4ZWNhZmQ1IiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
 		scale: null
 	}
 
-	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone];
+	var urlOKR2 ={
+		url: "https://app.powerbi.com/view?r=eyJrIjoiMWU5ZmNhZTMtZGY5MC00NzNiLTkxOTYtNzAwNzdmZjRjYjU1IiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
+		scale: null
+	}
+
+	var urlOKR3 ={
+		url: "https://app.powerbi.com/view?r=eyJrIjoiMGMwMjljNGQtNDJmOC00OWRjLWE2M2MtYzc4ZWYwMjgyNDEzIiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
+		scale: null
+	}
+
+	var urlOKR4 ={
+		url: "https://app.powerbi.com/view?r=eyJrIjoiNWM3NDZhZTgtZGM5YS00ZGM3LTg3YmMtMTEzMDYwMjgzMDgzIiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
+		scale: null
+	}
+	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone, urlOKR1,
+				urlOKR2, urlOKR3, urlOKR4];
 	
-	//var urls = [urlOKRs];
 	var i = 0;
 	
 	function redirect_url(){
@@ -65,7 +79,10 @@
 		<!-- document.getElementById('frameAniversarios').style.display = 'none';	 -->
 		if( i < urls.length ){
 			setTimeout(function(){
-				if (i > 0 && urls[i].url != urloneonone.url && urls[i].url != urlAniversarios.url) {
+				if (i > 0 && urls[i].url != urloneonone.url && urls[i].url != urlAniversarios.url && 
+					urls[i].url != urlOKR1.url && urls[i].url != urlOKR2.url && 
+					urls[i].url != urlOKR3.url && urls[i].url != urlOKR4.url) 
+				{
 					document.getElementById('frame').setAttribute('src', urls[i].url + "&refresh="+(new Date()));
 					document.getElementById('frame').style.transform = urls[i].scale;
 				}
@@ -85,19 +102,6 @@
 					document.getElementById('frameOneOnOne').style.display = 'none';
 					document.getElementById('frameAniversarios').style.display = 'block';
 				}
-				// else if(frameElement.src === urlOKRs.url)
-				// {
-				// 	setTimeout({}, 3000);
-				// 	var paginaAnterior = document.getElementsByClassName('pbi-glyph-chevronleftmedium')[0];
-				// 	paginaAnterior.click();
-				// 	paginaAnterior.click();
-				// 	var proximaPagina = document.getElementsByClassName('pbi-glyph-chevronrightmedium')[0];
-
-				// 	for( j = 0; j < 8; ++j)
-				// 	{
-				// 		setTimeout(proximaPagina.click(), 20000);
-				// 	}
-				// }
 				else {
 					frameElement.contentWindow.location.href = frameElement.src;
 					frameElement.style.display = 'block';
