@@ -78,6 +78,19 @@
 		<!-- document.getElementById('frameOneOnOne').style.display = 'none'; -->
 		<!-- document.getElementById('frameAniversarios').style.display = 'none';	 -->
 		if( i < urls.length ){
+			timeOut = 0;
+
+			if(urls[i].url != urlOKR1.url && urls[i].url != urlOKR2.url && 
+			urls[i].url != urlOKR3.url && urls[i].url != urlOKR4.url)
+			{
+				timeOut = 20000;
+			}
+			else
+			{
+				timeOut = 40000;
+			}
+
+
 			setTimeout(function(){
 				if (i > 0 && urls[i].url != urloneonone.url && urls[i].url != urlAniversarios.url && 
 					urls[i].url != urlOKR1.url && urls[i].url != urlOKR2.url && 
@@ -109,7 +122,7 @@
 					document.getElementById('frameAniversarios').style.display = 'none';
 				}
 				redirect_url();
-			}, 20000);
+			}, timeOut);
 		}
 		else
 		{
