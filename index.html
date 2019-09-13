@@ -49,28 +49,7 @@
 		url: "https://mnalmeida.github.io/dti-1-1/aniversariantes.html",
 		scale: null
 	}
-
-	var urlOKR1 ={
-		url: "https://app.powerbi.com/view?r=eyJrIjoiZjM1YjI3ZTUtODRkNC00NDU4LWI0MTYtNzgyMjU4ZWNhZmQ1IiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
-		scale: null
-	}
-
-	var urlOKR2 ={
-		url: "https://app.powerbi.com/view?r=eyJrIjoiMmM1MjgyMDgtZmQwOS00ZWNiLThkNWQtNjU4ODJiMGQ0YTk2IiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
-		scale: null
-	}
-
-	var urlOKR3 ={
-		url: "https://app.powerbi.com/view?r=eyJrIjoiMGMwMjljNGQtNDJmOC00OWRjLWE2M2MtYzc4ZWYwMjgyNDEzIiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
-		scale: null
-	}
-
-	var urlOKR4 ={
-		url: "https://app.powerbi.com/view?r=eyJrIjoiNWM3NDZhZTgtZGM5YS00ZGM3LTg3YmMtMTEzMDYwMjgzMDgzIiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
-		scale: null
-	}
-	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone, urlOKR1,
-				urlOKR2, urlOKR3, urlOKR4];
+	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone];
 	
 	var i = 0;
 	
@@ -80,21 +59,10 @@
 		if( i < urls.length ){
 			timeOut = 0;
 
-			if(urls[i].url != urlOKR1.url && urls[i].url != urlOKR2.url && 
-			urls[i].url != urlOKR3.url && urls[i].url != urlOKR4.url)
-			{
-				timeOut = 20000;
-			}
-			else
-			{
-				timeOut = 40000;
-			}
-
-
+			timeOut = 20000;
+			
 			setTimeout(function(){
-				if (i > 0 && urls[i].url != urloneonone.url && urls[i].url != urlAniversarios.url && 
-					urls[i].url != urlOKR1.url && urls[i].url != urlOKR2.url && 
-					urls[i].url != urlOKR3.url && urls[i].url != urlOKR4.url) 
+				if (i > 0 && urls[i].url != urloneonone.url && urls[i].url != urlAniversarios.url) 
 				{
 					document.getElementById('frame').setAttribute('src', urls[i].url + "&refresh="+(new Date()));
 					document.getElementById('frame').style.transform = urls[i].scale;
