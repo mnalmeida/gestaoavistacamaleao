@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 	var urloneonone = {
-		url: "https://mnalmeida.github.io/dti-1-1",
+		url: "https://app.powerbi.com/view?r=eyJrIjoiMjI0MzNmM2MtN2RlZC00NjNjLTliMTktYTM3MTU0NzAxNmVjIiwidCI6IjljODUzYmE1LWNlN2MtNGI3MS05YjE0LTQyOWNlNGRiNzlkZCJ9",
 		scale: null
 	};
 	
@@ -35,13 +35,13 @@
 		scale: null
 	};
 	
-	var urlGestaoAVista = {
-		url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQk9bPzyaZ-zuR1iazktzgY18D_2ZERRL9zI3ibxmHjGlT6cQ5_DkVoe2Ig-kyG-J8o3a9GLf_P9xB7/pubhtml?gid=648305186&single=true",
+	var urlGestaoAVistaCamaleao = {
+		url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTqKNyckqUhbW0tbBazGoAjsEMUjbVyaSUqYgPqVENmz-k4zh6OvER8J0CbUdNmypeHzwNQYMtuCv7j/pubhtml?gid=2092766634&single=true",
 		scale: null
 	};
-	
-	var urlAderenciaOperacional = {
-		url: "https://docs.google.com/spreadsheets/d/19ZBFnBBTBPInGoXyVf2ImRm4d9IUYv_h2jELR1jTKfA/pubhtml?gid=1299658999&single=true&amp;widget=true&amp;headers=false",
+
+	var urlGestaoAVistaCamaleao2 = {
+		url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT1ZNeY9IbPSgdaMlinsUcmSuoDPtUo7H9OgJpSUzQdjC6Zas_Vo98BUSwVfGRQkVRZnKpSc3rcj4ml/pubhtml?gid=2092766634&single=true",
 		scale: null
 	};
 	
@@ -49,7 +49,7 @@
 		url: "https://mnalmeida.github.io/dti-1-1/aniversariantes.html",
 		scale: null
 	}
-	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVista, urlAniversarios, urloneonone];
+	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVistaCamaleao, urlGestaoAVistaCamaleao2, urlAniversarios, urloneonone];
 	
 	var i = 0;
 	
@@ -62,7 +62,7 @@
 			timeOut = 20000;
 			
 			setTimeout(function(){
-				if (i > 0 && urls[i].url != urloneonone.url && urls[i].url != urlAniversarios.url) 
+				if (i > 0 && urls[i].url != urlAniversarios.url) 
 				{
 					document.getElementById('frame').setAttribute('src', urls[i].url + "&refresh="+(new Date()));
 					document.getElementById('frame').style.transform = urls[i].scale;
@@ -73,12 +73,7 @@
 				}
 				i++;
 				var frameElement = document.getElementById("frame");
-				if(frameElement.src === urloneonone.url) {
-					frameElement.style.display = 'none';
-					document.getElementById('frameOneOnOne').style.display = 'block';
-					document.getElementById('frameAniversarios').style.display = 'none';
-				}
-				else if (frameElement.src === urlAniversarios.url) {
+				if (frameElement.src === urlAniversarios.url) {
 					frameElement.style.display = 'none';
 					document.getElementById('frameOneOnOne').style.display = 'none';
 					document.getElementById('frameAniversarios').style.display = 'block';
