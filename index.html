@@ -55,7 +55,7 @@
 		if( i < urls.length ){
 			timeOut = 0;
 
-			timeOut = 20000;
+			timeOut = 30000;
 			
 			setTimeout(function(){
 				if (i > 0) 
@@ -72,8 +72,6 @@
 				
 				frameElement.contentWindow.location.href = frameElement.src;
 				frameElement.style.display = 'block';
-				document.getElementById('frameOneOnOne').style.display = 'none';
-				document.getElementById('frameAniversarios').style.display = 'none';
 				
 				redirect_url();
 			}, timeOut);
