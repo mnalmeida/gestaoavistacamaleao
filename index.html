@@ -45,11 +45,7 @@
 		scale: null
 	};
 	
-	var urlAniversarios = {
-		url: "https://mnalmeida.github.io/dti-1-1/aniversariantes.html",
-		scale: null
-	}
-	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVistaCamaleao, urlGestaoAVistaCamaleao2, urlAniversarios, urloneonone];
+	var urls = [urlLogo, urlIgnition, urlCheckExecucao, urlGrowthBoard, urlAgenda,  urlGestaoAVistaCamaleao, urlGestaoAVistaCamaleao2, urloneonone];
 	
 	var i = 0;
 	
@@ -59,10 +55,10 @@
 		if( i < urls.length ){
 			timeOut = 0;
 
-			timeOut = 20000;
+			timeOut = 2000;
 			
 			setTimeout(function(){
-				if (i > 0 && urls[i].url != urlAniversarios.url) 
+				if (i > 0) 
 				{
 					document.getElementById('frame').setAttribute('src', urls[i].url + "&refresh="+(new Date()));
 					document.getElementById('frame').style.transform = urls[i].scale;
@@ -73,17 +69,12 @@
 				}
 				i++;
 				var frameElement = document.getElementById("frame");
-				if (frameElement.src === urlAniversarios.url) {
-					frameElement.style.display = 'none';
-					document.getElementById('frameOneOnOne').style.display = 'none';
-					document.getElementById('frameAniversarios').style.display = 'block';
-				}
-				else {
-					frameElement.contentWindow.location.href = frameElement.src;
-					frameElement.style.display = 'block';
-					document.getElementById('frameOneOnOne').style.display = 'none';
-					document.getElementById('frameAniversarios').style.display = 'none';
-				}
+				
+				frameElement.contentWindow.location.href = frameElement.src;
+				frameElement.style.display = 'block';
+				document.getElementById('frameOneOnOne').style.display = 'none';
+				document.getElementById('frameAniversarios').style.display = 'none';
+				
 				redirect_url();
 			}, timeOut);
 		}
