@@ -50,15 +50,14 @@
 	var i = 0;
 	
 	function redirect_url(){
-		// document.getElementById('frameOneOnOne').style.display = 'none'; -->
-		// document.getElementById('frameAniversarios').style.display = 'none';	 -->
 		if( i < urls.length ){
 			timeOut = 0;
 
 			timeOut = 30000;
 			
 			setTimeout(function(){
-				if (i > 0) 
+				
+				if (i != 0 && i != 3) 
 				{
 					document.getElementById('frame').setAttribute('src', urls[i].url + "&refresh="+(new Date()));
 					document.getElementById('frame').style.transform = urls[i].scale;
